@@ -1,3 +1,5 @@
+{% extends "rentout/base.html" %}
+{% block bodycontent %}
  <h1>Log in</h1>
 
 <form action="{% url 'rentout:login' %}" method="post" id="login-form">{% csrf_token %}
@@ -14,3 +16,4 @@
     <label>&nbsp;</label><input type="submit" value="Log in" />
   </div>
 </form>
+{% endblock %}
