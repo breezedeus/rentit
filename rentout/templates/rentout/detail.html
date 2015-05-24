@@ -10,6 +10,7 @@
         {% include 'rentout/wish.html' %}
     </li>
     {% endfor %}
+    {% if form %}
     <li>
         <form action="{% url 'rentout:detail' outorder.id %}" method="post">
             {% csrf_token %}
@@ -19,5 +20,6 @@
             <input type="submit" value="Create a wish">
         </form>
     </li>
+    {% endif %}
 </ol>
 {% endblock %}

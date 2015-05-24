@@ -10,9 +10,15 @@
         <td>
             Welcome, <strong>{% firstof user.get_short_name user.get_username %}</strong>.
         </td>
+        {% if user.is_active %}
         <td>
             <a href="{% url 'rentout:logout' %}">Logout</a>
         </td>
+        {% else %}
+        <td>
+            <a href="{% url 'rentout:login' %}">Login</a>
+        </td>
+        {% endif %}
         <td>
             <a href="/admin/">admin</a>
         </td>

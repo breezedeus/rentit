@@ -1,4 +1,4 @@
-# rentit
+# RentIt
 
 ---
 published: true

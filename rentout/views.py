@@ -46,6 +46,8 @@ def detail(request, pk):
     else:
         form = WishCreationForm()
 
+    if not request.user.is_active:
+        form = None
     context = {'outorder': outorder, 'form': form}
     return render(request, 'rentout/detail.html', context)
 
