@@ -1,0 +1,16 @@
+{% extends "rentout/base.html" %}
+{% load staticfiles %}
+
+{% block bodycontent %}
+<link rel="stylesheet" type="text/css" href="{% static 'rentout/style.css' %}" />
+
+{% if latest_outorder %}
+    <ul>
+    {% for outorder in latest_outorder%}
+        <li><a href="{% url 'rentout:detail' outorder.id %}">{{ outorder }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No outorders are available.</p>
+{% endif %}
+{% endblock %}

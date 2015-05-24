@@ -1,0 +1,23 @@
+{% extends "rentout/base.html" %}
+{% block bodycontent %}
+<h1>Name={{ outorder.item_name }}, id={{ outorder.id }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<ol>
+    {% for wish in outorder.wish_set.all %}
+    <li>
+        {% include 'rentout/wish.html' %}
+    </li>
+    {% endfor %}
+    <li>
+        <form action="{% url 'rentout:detail' outorder.id %}" method="post">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <input type="submit" value="Create a wish">
+        </form>
+    </li>
+</ol>
+{% endblock %}

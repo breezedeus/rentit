@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+{% block bodywelcome %}
+<table border="1">
+    <tr>
+        <td>
+            Welcome, <strong>{% firstof user.get_short_name user.get_username %}</strong>.
+        </td>
+        <td>
+            <a href="{% url 'rentout:logout' %}">Logout</a>
+        </td>
+        <td>
+            <a href="/admin/">admin</a>
+        </td>
+    </tr>
+</table>
+{% endblock %}
+{% block bodycontent %}{% endblock %}
+</body>
+</html>
+

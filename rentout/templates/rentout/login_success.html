@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+Welcome, user <em>{{ username }}</em>
+<h1> {{action_name|default:"Login"}} successfully! </h1>
+<a href="{% url 'rentout:login' %}">Login</a>
+</body>
+</html>
