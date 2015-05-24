@@ -10,13 +10,16 @@
         <td>
             Welcome, <strong>{% firstof user.get_short_name user.get_username %}</strong>.
         </td>
+        <td>
+            <a href="{% url 'rentout:index' %}">Homepage</a>
+        </td>
         {% if user.is_active %}
         <td>
-            <a href="{% url 'rentout:logout' %}">Logout</a>
+            <a href="{% url 'rentout:logout' %}?next={{ request.path }}">Logout</a>
         </td>
         {% else %}
         <td>
-            <a href="{% url 'rentout:login' %}">Login</a>
+            <a href="{% url 'rentout:login' %}?next={{ request.path }}">Login</a>
         </td>
         {% endif %}
         <td>
