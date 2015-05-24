@@ -6,6 +6,6 @@
 <body>
 Welcome, user <em>{{ username }}</em>
 <h1> {{action_name|default:"Login"}} successfully! </h1>
-<a href="{% url 'rentout:login' %}">Login</a>
+<a href="{% url 'rentout:login' %}?next={{ next }}">Login</a>
 </body>
 </html>

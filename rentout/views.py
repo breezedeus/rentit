@@ -73,9 +73,12 @@ def login(request):
 
 
 def logout(request):
+    redirect_field_name = REDIRECT_FIELD_NAME
+    redirect_to = request.POST.get(redirect_field_name,
+                                   request.GET.get(redirect_field_name, ''))
     username = request.user.username
+    context = {'action_name': 'Logout', 'username': username, redirect_field_name: redirect_to}
     auth_logout(request)
-    return render_to_response("rentout/login_success.html",
-                              {'action_name': 'Logout', 'username': username})
+    return render_to_response("rentout/login_success.html", context)
 
 
